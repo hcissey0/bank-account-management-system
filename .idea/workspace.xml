@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d26eb0b1-4788-4250-86bc-22d9a0ae7034" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/bank-account-management-system.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/bank.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/accounts/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/accounts/AccountManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/accounts/AccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/accounts/CheckingAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/accounts/SavingsAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/customers/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/customers/CustomerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/customers/PremiumCustomer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/customers/RegularCustomer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/exceptions/AccountNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/exceptions/BankException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/exceptions/InsufficientFundsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/exceptions/InvalidAmountException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/transactions/Transactable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/transactions/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/transactions/TransactionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/utils/ConsoleTablePrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bank/src/utils/TablePrinter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/accounts/Account.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/accounts/AccountManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/accounts/CheckingAccount.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/accounts/SavingsAccount.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/customers/Customer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/customers/CustomerManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/customers/PremiumCustomer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/customers/RegularCustomer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/transactions/Transactable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/transactions/Transaction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/transactions/TransactionManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/utils/ConsoleTablePrinter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/bank/utils/TablePrinter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/src/main.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Exception" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="36HhJSXBz58dzvZVMTqFGSegsOk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestRunner.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.AccountTest.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/HassanCisseyTijani/code/projects/bank-account-management-system/bank/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HassanCisseyTijani\code\projects\bank-account-management-system\src" />
+      <recent name="C:\Users\HassanCisseyTijani\code\projects\bank-account-management-system" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="accounts" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.TestRunner">
+    <configuration name="TestRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.TestRunner" />
+      <module name="bank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="bank" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="bank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="accounts.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="accounts" />
+      <option name="MAIN_CLASS_NAME" value="accounts.AccountTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.main" />
+      <item itemvalue="Application.TestRunner" />
+      <item itemvalue="JUnit.AccountTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestRunner" />
+        <item itemvalue="JUnit.AccountTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d26eb0b1-4788-4250-86bc-22d9a0ae7034" name="Changes" comment="" />
+      <created>1764669331960</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764669331960</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/src/Main.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/bank/src/Main.java</url>
+          <line>224</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
