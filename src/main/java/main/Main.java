@@ -1,3 +1,4 @@
+package main;
 
 import accounts.Account;
 import accounts.AccountManager;
@@ -12,6 +13,7 @@ import exceptions.BankException;
 import transactions.Transaction;
 import transactions.TransactionManager;
 import utils.ConsoleInputReader;
+import utils.CustomTestRunner;
 import utils.InputReader;
 
 class Main {
@@ -39,9 +41,10 @@ class Main {
                 System.out.println("4. Process Transaction");
                 System.out.println("5. View Transaction History for an account");
                 System.out.println("6. View all Transaction Histories");
-                System.out.println("7. Exit\n");
+                System.out.println("7. Run Tests");
+                System.out.println("8. Exit\n");
 
-                choice = inputReader.readInt("Enter your choice: ", 1, 7);
+                choice = inputReader.readInt("Enter your choice: ", 1, 8);
 
                 switch (choice) {
                     case 1:
@@ -63,12 +66,15 @@ class Main {
                         viewAllTransactionHistory(transactionManager, inputReader);
                         break;
                     case 7:
+                        runTests(inputReader);
+                        break;
+                    case 8:
                         break;
                     default:
                         System.out.println("Invalid Input. Try Again!");
                 }
 
-            } while (choice != 7);
+            } while (choice != 8);
 
         }
 
@@ -247,5 +253,17 @@ class Main {
 
     public static void viewCustomers(CustomerManager customerManager, InputReader inputReader) {
         customerManager.viewAllCustomers(inputReader);
+    }
+
+    private static void runTests(InputReader inputReader) {
+        System.out.println("Running tests...");
+        try {
+            CustomTestRunner runner = new CustomTestRunner();
+            runner.runTests();
+        } catch (Exception e) {
+            System.out.println("Failed to run tests: " + e.getMessage());
+            e.printStackTrace();
+        }
+        inputReader.waitForEnter();
     }
 }
