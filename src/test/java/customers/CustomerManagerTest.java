@@ -24,7 +24,7 @@ public class CustomerManagerTest {
     void testFindCustomerSuccess() {
         Customer customer = new RegularCustomer("Charlie", 30, "555-9999", "101 Maple Dr");
         customerManager.addCustomer(customer);
-        
+
         Customer found = customerManager.findCustomer(customer.getCustomerId());
         assertNotNull(found);
         assertEquals(customer, found);
@@ -43,7 +43,7 @@ public class CustomerManagerTest {
             customerManager.addCustomer(new RegularCustomer("User" + i, 20, "Contact", "Address"));
         }
         assertEquals(100, customerManager.getCustomerCount());
-        
+
         // Try adding one more
         customerManager.addCustomer(new RegularCustomer("Overflow", 20, "Contact", "Address"));
         assertEquals(100, customerManager.getCustomerCount());
