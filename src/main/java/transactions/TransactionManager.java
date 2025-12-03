@@ -3,10 +3,7 @@ package transactions;
 import utils.ConsoleTablePrinter;
 import utils.TablePrinter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class TransactionManager {
@@ -63,8 +60,8 @@ public class TransactionManager {
         return this.transactionCount;
     }
 
-    public void viewAllTransactions(Scanner scanner) {
-        if (isTransactionListEmpty(scanner)) {
+    public void viewAllTransactions(utils.InputReader inputReader) {
+        if (isTransactionListEmpty(inputReader)) {
             return;
         }
 
@@ -74,14 +71,13 @@ public class TransactionManager {
         printer.printTable(headers, data);
         displayTransactionSummary(transactionCount, calculateTotalDeposits(), calculateTotalWithdrawals());
 
-        waitForUserInput(scanner);
+        waitForUserInput(inputReader);
     }
 
-    public void viewTransactionsByAccount(String accountNumber, Scanner scanner) {
+    public void viewTransactionsByAccount(String accountNumber, utils.InputReader inputReader) {
         if (accountNumber == null || accountNumber.trim().isEmpty()) {
             System.out.println("Invalid account number provided");
-            System.out.println("\nPress Enter to continue...");
-            scanner.nextLine();
+            inputReader.waitForEnter();
             return;
         }
 
@@ -90,8 +86,7 @@ public class TransactionManager {
 
         if (count == 0) {
             System.out.println("No transactions recorded for account: " + accountNumber);
-            System.out.println("\nPress Enter to continue...");
-            scanner.nextLine();
+            inputReader.waitForEnter();
             return;
         }
 
@@ -104,7 +99,7 @@ public class TransactionManager {
         double totalWithdrawals = calculateTotalByTypeForAccount(accountNumber, WITHDRAWAL_TYPE);
         displayTransactionSummary(count, totalDeposits, totalWithdrawals);
 
-        waitForUserInput(scanner);
+        waitForUserInput(inputReader);
     }
 
     // ==================== HELPER METHODS ====================
@@ -248,14 +243,13 @@ public class TransactionManager {
     /**
      * Helper method to check if transaction list is empty
      * 
-     * @param scanner Scanner for user input
+     * @param inputReader InputReader for user input
      * @return true if empty, false otherwise
      */
-    private boolean isTransactionListEmpty(Scanner scanner) {
+    private boolean isTransactionListEmpty(utils.InputReader inputReader) {
         if (transactionCount == 0) {
             System.out.println("No transactions available.");
-            System.out.println("\nPress Enter to continue...");
-            scanner.nextLine();
+            inputReader.waitForEnter();
             return true;
         }
         return false;
@@ -264,10 +258,9 @@ public class TransactionManager {
     /**
      * Helper method to wait for user input before continuing
      * 
-     * @param scanner Scanner for user input
+     * @param inputReader InputReader for user input
      */
-    private void waitForUserInput(Scanner scanner) {
-        System.out.println("\nPress Enter to continue...");
-        scanner.nextLine();
+    private void waitForUserInput(utils.InputReader inputReader) {
+        inputReader.waitForEnter();
     }
 }

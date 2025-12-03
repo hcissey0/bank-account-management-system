@@ -1,4 +1,3 @@
-package java;
 
 import accounts.Account;
 import accounts.AccountManager;
@@ -12,8 +11,8 @@ import exceptions.AccountNotFoundException;
 import exceptions.BankException;
 import transactions.Transaction;
 import transactions.TransactionManager;
-
-import java.util.Scanner;
+import utils.ConsoleInputReader;
+import utils.InputReader;
 
 class Main {
 
@@ -27,7 +26,7 @@ class Main {
         CustomerManager customerManager = new CustomerManager();
 
         int choice = 0;
-        try (Scanner scanner = new Scanner(System.in)) {
+        try (ConsoleInputReader inputReader = new ConsoleInputReader()) {
 
             do {
                 System.out.println();
@@ -42,26 +41,26 @@ class Main {
                 System.out.println("6. View all Transaction Histories");
                 System.out.println("7. Exit\n");
 
-                choice = readInt(scanner, "Enter your choice: ", 1, 7);
+                choice = inputReader.readInt("Enter your choice: ", 1, 7);
 
                 switch (choice) {
                     case 1:
-                        createAccount(accountManager, customerManager, scanner);
+                        createAccount(accountManager, customerManager, inputReader);
                         break;
                     case 2:
-                        viewAccounts(accountManager, scanner);
+                        viewAccounts(accountManager, inputReader);
                         break;
                     case 3:
-                        viewCustomers(customerManager, scanner);
+                        viewCustomers(customerManager, inputReader);
                         break;
                     case 4:
-                        processTransaction(accountManager, transactionManager, scanner);
+                        processTransaction(accountManager, transactionManager, inputReader);
                         break;
                     case 5:
-                        viewTransactionHistory(transactionManager, scanner);
+                        viewTransactionHistory(transactionManager, inputReader);
                         break;
                     case 6:
-                        viewAllTransactionHistory(transactionManager, scanner);
+                        viewAllTransactionHistory(transactionManager, inputReader);
                         break;
                     case 7:
                         break;
@@ -77,29 +76,29 @@ class Main {
         System.out.println("Goodbye!");
     }
 
-    public static void viewAllTransactionHistory(TransactionManager transactionManager, Scanner scanner) {
-        transactionManager.viewAllTransactions(scanner);
+    public static void viewAllTransactionHistory(TransactionManager transactionManager, InputReader inputReader) {
+        transactionManager.viewAllTransactions(inputReader);
     }
 
-    public static void viewTransactionHistory(TransactionManager transactionManager, Scanner scanner) {
+    public static void viewTransactionHistory(TransactionManager transactionManager, InputReader inputReader) {
         System.out.println();
         System.out.println("+--------------------------+");
         System.out.println("| VIEW TRANSACTION HISTORY |");
         System.out.println("+--------------------------+");
 
-        String accountNumber = readString(scanner, "\nEnter Account number: ");
+        String accountNumber = inputReader.readString("\nEnter Account number: ");
 
-        transactionManager.viewTransactionsByAccount(accountNumber, scanner);
+        transactionManager.viewTransactionsByAccount(accountNumber, inputReader);
     }
 
     public static void processTransaction(AccountManager accountManager, TransactionManager transactionManager,
-            Scanner scanner) {
+            InputReader inputReader) {
         System.out.println();
         System.out.println("+---------------------+");
         System.out.println("| PROCESS TRANSACTION |");
         System.out.println("+---------------------+");
 
-        String accountNumber = readString(scanner, "\nEnter Account number: ");
+        String accountNumber = inputReader.readString("\nEnter Account number: ");
 
         Account account;
         try {
@@ -115,9 +114,9 @@ class Main {
         System.out.println("1. Deposit");
         System.out.println("2. Withdraw");
 
-        int transactionType = readInt(scanner, "Enter choice (1-2): ", 1, 2);
+        int transactionType = inputReader.readInt("Enter choice (1-2): ", 1, 2);
 
-        double amount = readDouble(scanner, "Enter amount: ", 0);
+        double amount = inputReader.readDouble("Enter amount: ", 0);
 
         String typeStr = (transactionType == 1) ? "Deposit" : "Withdrawal";
 
@@ -140,8 +139,7 @@ class Main {
         System.out.println("New Balance: $" + amountAfter);
         System.out.println("Date/Time: " + transaction.getTimestamp());
 
-        System.out.print("\nConfirm transaction? (y/n): ");
-        String confirm = scanner.nextLine().trim().toLowerCase();
+        String confirm = inputReader.readString("\nConfirm transaction? (y/n): ").toLowerCase();
 
         if (!confirm.startsWith("y")) {
             System.out.println("Transaction cancelled.");
@@ -161,20 +159,20 @@ class Main {
             System.out.println("Transaction failed: " + e.getMessage());
         }
 
-        System.out.println("\nPress Enter to continue...");
-        scanner.nextLine();
+        inputReader.waitForEnter();
 
     }
 
-    public static void createAccount(AccountManager accountManager, CustomerManager customerManager, Scanner scanner) {
+    public static void createAccount(AccountManager accountManager, CustomerManager customerManager,
+            InputReader inputReader) {
         System.out.println();
         System.out.println("+------------------+");
         System.out.println("| ACCOUNT CREATION |");
         System.out.println("+------------------+");
 
-        Customer customer = createCustomer(scanner);
+        Customer customer = createCustomer(inputReader);
         customerManager.addCustomer(customer);
-        Account account = createAccountForCustomer(scanner, customer);
+        Account account = createAccountForCustomer(inputReader, customer);
 
         System.out.println();
         System.out.println("+--------------+");
@@ -185,8 +183,7 @@ class Main {
         System.out.println("Account Type: " + account.getAccountType());
         System.out.println("Initial Deposit: $" + account.getBalance());
 
-        System.out.print("\nConfirm account creation? (y/n): ");
-        String confirm = scanner.nextLine().trim().toLowerCase();
+        String confirm = inputReader.readString("\nConfirm account creation? (y/n): ").toLowerCase();
 
         if (!confirm.startsWith("y")) {
             System.out.println("Account creation cancelled.");
@@ -200,22 +197,21 @@ class Main {
         account.displayAccountDetails();
         customer.displayCustomerDetails();
 
-        System.out.println("\nPress Enter to continue...");
-        scanner.nextLine();
+        inputReader.waitForEnter();
 
     }
 
-    private static Customer createCustomer(Scanner scanner) {
-        String name = readString(scanner, "\nEnter customer name: ");
-        int age = readInt(scanner, "Enter customer age: ", 0, 150);
-        String contact = readString(scanner, "Enter customer contact: ");
-        String address = readString(scanner, "Enter customer address: ");
+    private static Customer createCustomer(InputReader inputReader) {
+        String name = inputReader.readString("\nEnter customer name: ");
+        int age = inputReader.readInt("Enter customer age: ", 0, 150);
+        String contact = inputReader.readString("Enter customer contact: ");
+        String address = inputReader.readString("Enter customer address: ");
 
         System.out.println("\nCustomer type:");
         System.out.println("1. Regular Customer (Standard banking services)");
         System.out.println("2. Premium Customer (Enhanced benefits, min balance $10,000)");
 
-        int customerType = readInt(scanner, "\nSelect type (1-2): ", 1, 2);
+        int customerType = inputReader.readInt("\nSelect type (1-2): ", 1, 2);
 
         if (customerType == 1) {
             return new RegularCustomer(name, age, contact, address);
@@ -224,19 +220,19 @@ class Main {
         }
     }
 
-    private static Account createAccountForCustomer(Scanner scanner, Customer customer) {
+    private static Account createAccountForCustomer(InputReader inputReader, Customer customer) {
         System.out.println("\nAccount type:");
         System.out.println("1. Savings Account (Interest: 3.5%, Min Balance: $500)");
         System.out.println("2. Checking Account (Overdraft: $1,000, Monthly Fee: $10)");
 
-        int accountType = readInt(scanner, "\nSelect type (1-2): ", 1, 2);
+        int accountType = inputReader.readInt("\nSelect type (1-2): ", 1, 2);
 
         double minDeposit = (accountType == 1) ? 500.0 : 0.0;
         if (customer instanceof PremiumCustomer) {
             minDeposit = Math.max(minDeposit, 10000.0);
         }
 
-        double initialDeposit = readDouble(scanner, "\nEnter initial deposit amount: ", minDeposit);
+        double initialDeposit = inputReader.readDouble("\nEnter initial deposit amount: ", minDeposit);
 
         if (accountType == 1) {
             return new SavingsAccount(customer, initialDeposit);
@@ -245,62 +241,11 @@ class Main {
         }
     }
 
-    public static void viewAccounts(AccountManager accountManager, Scanner scanner) {
-        accountManager.viewAllAccounts(scanner);
+    public static void viewAccounts(AccountManager accountManager, InputReader inputReader) {
+        accountManager.viewAllAccounts(inputReader);
     }
 
-    public static void viewCustomers(CustomerManager customerManager, Scanner scanner) {
-        customerManager.viewAllCustomers(scanner);
-    }
-
-    // input validation functions
-    private static int readInt(Scanner scanner, String prompt, int min, int max) {
-        int value;
-        while (true) {
-            System.out.print(prompt);
-            try {
-                value = Integer.parseInt(scanner.nextLine().trim());
-                if (value >= min && value <= max) {
-                    break;
-                } else {
-                    System.out.println("Invalid input. Please enter a number between " + min + " and " + max + ".");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
-            }
-        }
-        return value;
-    }
-
-    private static double readDouble(Scanner scanner, String prompt, double min) {
-        double value;
-        while (true) {
-            System.out.print(prompt);
-            try {
-                value = Double.parseDouble(scanner.nextLine().trim());
-                if (value >= min) {
-                    break;
-                } else {
-                    System.out.println("Invalid input. Please enter a number greater than or equal to " + min + ".");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid number.");
-            }
-        }
-        return value;
-    }
-
-    private static String readString(Scanner scanner, String prompt) {
-        String value;
-        while (true) {
-            System.out.print(prompt);
-            value = scanner.nextLine().trim();
-            if (!value.isEmpty()) {
-                break;
-            } else {
-                System.out.println("Input cannot be empty. Please try again.");
-            }
-        }
-        return value;
+    public static void viewCustomers(CustomerManager customerManager, InputReader inputReader) {
+        customerManager.viewAllCustomers(inputReader);
     }
 }

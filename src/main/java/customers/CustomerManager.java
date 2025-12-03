@@ -35,7 +35,7 @@ public class CustomerManager {
         return null;
     }
 
-    public void viewAllCustomers(Scanner scanner) {
+    public void viewAllCustomers(utils.InputReader inputReader) {
         String[] headers = {
                 "CUSTOMER ID",
                 "NAME",
@@ -47,8 +47,7 @@ public class CustomerManager {
 
         if (customerCount == 0) {
             System.out.println("No customers available.");
-            System.out.println("\nPress Enter to continue...");
-            scanner.nextLine();
+            inputReader.waitForEnter();
             return;
         }
 
@@ -66,8 +65,7 @@ public class CustomerManager {
         printer.printTable(headers, data);
 
         System.out.println("Total Customers: " + customerCount);
-        System.out.println("\nPress Enter to continue...");
-        scanner.nextLine();
+        inputReader.waitForEnter();
     }
 
     public int getCustomerCount() {
