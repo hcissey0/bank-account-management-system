@@ -6,13 +6,12 @@ import exceptions.InvalidAmountException;
 import transactions.Transactable;
 
 public abstract class Account implements Transactable {
+    private static final String DEFAULT_STATUS = "Active";
     private static int accountCounter = 0;
     private final String accountNumber;
     private final Customer customer;
-    private double balance;
     private final String status;
-
-    private static final String DEFAULT_STATUS = "Active";
+    private double balance;
 
 
     Account(Customer customer) {

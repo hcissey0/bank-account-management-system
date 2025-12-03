@@ -24,6 +24,12 @@
             <artifactId>junit-platform-launcher</artifactId>
             <version>1.10.2</version>
         </dependency>
+
+        <dependency>
+  <groupId>com.google.googlejavaformat</groupId>
+  <artifactId>google-java-format</artifactId>
+  <version>${google-java-format.version}</version>
+</dependency>
     </dependencies>
 
     <build>
@@ -37,6 +43,8 @@
                     <classpathScope>test</classpathScope>
                 </configuration>
             </plugin>
+
+
 
         </plugins>
     </build>
