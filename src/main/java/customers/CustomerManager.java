@@ -9,15 +9,16 @@ public class CustomerManager {
     private final Customer[] customers;
     private int customerCount;
     private final TablePrinter printer;
+    private static final int MAX_CUSTOMERS = 100;
 
     public CustomerManager() {
-        this.customers = new Customer[100];
+        this.customers = new Customer[MAX_CUSTOMERS];
         this.customerCount = 0;
         this.printer = new ConsoleTablePrinter();
     }
 
     public void addCustomer(Customer customer) {
-        if (customerCount < customers.length)
+        if (customerCount < MAX_CUSTOMERS)
             this.customers[this.customerCount++] = customer;
         else
             System.out.println("Customer limit reached.");

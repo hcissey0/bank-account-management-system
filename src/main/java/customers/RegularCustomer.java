@@ -1,6 +1,7 @@
 package customers;
 
 public class RegularCustomer extends Customer {
+    private static final String CUSTOMER_TYPE = "Regular";
 
     public RegularCustomer(String name, int age, String contact, String address) {
         this.setName(name);
@@ -25,6 +26,6 @@ public class RegularCustomer extends Customer {
 
     @java.lang.Override
     public String getCustomerType() {
-        return "Regular";
+        return CUSTOMER_TYPE;
     }
 }

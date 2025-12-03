@@ -8,11 +8,15 @@ public class CheckingAccount extends Account {
     private final double overdraftLimit;
     private final double monthlyFee;
 
+    private static final String ACCOUNT_TYPE = "Checking";
+    private static final double OVERDRAFT_LIMIT = 1_000.0;
+    private static final double MONTHLY_FEE = 10.0;
+
     public CheckingAccount(Customer customer, double initialDeposit) {
         super(customer);
         this.deposit(initialDeposit);
-        this.overdraftLimit = 1000;
-        this.monthlyFee = 10;
+        this.overdraftLimit = OVERDRAFT_LIMIT;
+        this.monthlyFee = MONTHLY_FEE;
     }
 
     public double getMonthlyFee() {
@@ -56,7 +60,7 @@ public class CheckingAccount extends Account {
 
     @java.lang.Override
     public String getAccountType() {
-        return "Checking";
+        return ACCOUNT_TYPE;
     }
 
     @Override

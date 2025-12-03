@@ -12,8 +12,10 @@ public class AccountManager {
     private int accountCount;
     private final TablePrinter printer;
 
+    private static final int MAX_ACCOUNTS = 50;
+
     public AccountManager() {
-        this.accounts = new Account[50];
+        this.accounts = new Account[MAX_ACCOUNTS];
         this.accountCount = 0;
         this.printer = new ConsoleTablePrinter();
     }
@@ -23,7 +25,7 @@ public class AccountManager {
     }
 
     public void addAccount(Account account) {
-        if (accountCount < accounts.length)
+        if (accountCount < MAX_ACCOUNTS)
             this.accounts[this.accountCount++] = account;
         else
             System.out.println("Account limit reached.");
@@ -53,16 +55,7 @@ public class AccountManager {
             return;
         }
 
-        String[][] data = java.util.stream.IntStream.range(0, this.accountCount)
-            .mapToObj(i -> this.accounts[i])
-            .map(acc -> new String[]{
-                acc.getAccountNumber(),
-                formatCustomerName(acc),
-                formatAccountType(acc),
-                "$" + acc.getBalance(),
-                acc.getStatus()
-            })
-            .toArray(String[][]::new);
+        String[][] data = buildTableData();
 
         printer.printTable(headers, data);
 
@@ -71,6 +64,23 @@ public class AccountManager {
         System.out.println("Total Bank Balance: $" + getTotalBalance());
 
         inputReader.waitForEnter();
+    }
+
+    private String[][] buildTableData() {
+        return java.util.stream.IntStream.range(0, this.accountCount)
+                .mapToObj(i -> this.accounts[i])
+                .map(acc -> new String[]{
+                    acc.getAccountNumber(),
+                    formatCustomerName(acc),
+                    formatAccountType(acc),
+                    formatAccountBalance(acc),
+                    acc.getStatus()
+                })
+                .toArray(String[][]::new);
+        }
+        
+        private String formatAccountBalance(Account account) {
+        return "$" + String.format("%.2f", account.getBalance());
     }
 
     private String formatCustomerName(Account acc) {

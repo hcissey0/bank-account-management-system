@@ -3,9 +3,11 @@ package customers;
 public class PremiumCustomer extends Customer {
 
     private final double minimumBalance;
+    private static final String CUSTOMER_TYPE = "Premium";
+    private static final double MINIMUM_BALANCE = 10_000.0;
 
     public PremiumCustomer(String name, int age, String contact, String address) {
-        this.minimumBalance = 10000.0;
+        this.minimumBalance = MINIMUM_BALANCE;
 
         this.setName(name);
         this.setAge(age);
@@ -35,6 +37,6 @@ public class PremiumCustomer extends Customer {
 
     @java.lang.Override
     public String getCustomerType() {
-        return "Premium";
+        return CUSTOMER_TYPE;
     }
 }

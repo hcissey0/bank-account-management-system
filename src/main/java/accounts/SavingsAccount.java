@@ -8,11 +8,15 @@ public class SavingsAccount extends Account {
     private final double interestRate;
     private final double minimumBalance;
 
+    private static final double INTEREST_RATE = 3.5;
+    private static final double MINIMUM_BALANCE = 500.0;
+    private static final String ACCOUNT_TYPE = "Savings";
+
     public SavingsAccount(Customer customer, double initialDeposit) {
         super(customer);
         this.deposit(initialDeposit);
-        this.interestRate = 3.5;
-        this.minimumBalance = 500.0;
+        this.interestRate = INTEREST_RATE;
+        this.minimumBalance = MINIMUM_BALANCE;
     }
 
     public double getInterestRate() {
@@ -54,7 +58,7 @@ public class SavingsAccount extends Account {
 
     @java.lang.Override
     public String getAccountType() {
-        return "Savings";
+        return ACCOUNT_TYPE;
     }
 
     @Override

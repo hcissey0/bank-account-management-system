@@ -12,12 +12,14 @@ public abstract class Account implements Transactable {
     private double balance;
     private final String status;
 
+    private static final String DEFAULT_STATUS = "Active";
+
 
     Account(Customer customer) {
         this.accountNumber = generateAccountNumber();
         this.balance = 0;
         this.customer = customer;
-        this.status = "Active";
+        this.status = DEFAULT_STATUS;
     }
 
     private static String generateAccountNumber() {
@@ -52,11 +54,7 @@ public abstract class Account implements Transactable {
         this.balance = balance;
     }
 
-
-    public abstract void displayAccountDetails();
-
-    public abstract String getAccountType();
-
+    // methods
 
     public void deposit(double amount) {
         this.balance += amount;
@@ -92,6 +90,9 @@ public abstract class Account implements Transactable {
         if (amount <= 0) throw new InvalidAmountException("Amount must be positive");
     }
 
-    
+    public abstract void displayAccountDetails();
+
+    public abstract String getAccountType();
+
     protected abstract void validateWithdrawal(double amount) throws BankException;
 }

@@ -5,18 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8344e59-ea10-4784-8fd0-ce50bec65c23" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bank-management-system.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/accounts/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/accounts/AccountManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/accounts/AccountManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/accounts/CheckingAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/accounts/CheckingAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/accounts/SavingsAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/accounts/SavingsAccount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/customers/CustomerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customers/CustomerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/customers/PremiumCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customers/PremiumCustomer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/customers/RegularCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/customers/RegularCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/transactions/TransactionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/transactions/TransactionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/accounts/AccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/accounts/AccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/accounts/CheckingAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/accounts/CheckingAccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/customers/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/customers/CustomerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/accounts/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/accounts/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/accounts/AccountManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/accounts/AccountManager.class" afterDir="false" />
@@ -31,12 +27,9 @@
       <change beforePath="$PROJECT_DIR$/target/classes/exceptions/InsufficientFundsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/InsufficientFundsException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/exceptions/InvalidAmountException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/exceptions/InvalidAmountException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/transactions/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/transactions/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/transactions/TransactionManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/transactions/TransactionManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/utils/ConsoleInputReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/ConsoleInputReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/utils/ConsoleTablePrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/ConsoleTablePrinter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/accounts/AccountManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/accounts/AccountManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/accounts/AccountTest$TestAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/accounts/AccountTest$TestAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/accounts/AccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/accounts/AccountTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/accounts/CheckingAccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/accounts/CheckingAccountTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/accounts/SavingsAccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/accounts/SavingsAccountTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/customers/CustomerManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/customers/CustomerManagerTest.class" afterDir="false" />
@@ -63,6 +56,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "hcissey0"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:hcissey0/bank-account-management-system.git",
+    "accountId": "eb058da5-ae5d-4bc6-bbaf-bf9912650f2e"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
