@@ -3,14 +3,13 @@ package transactions;
 import utils.ConsoleTablePrinter;
 import utils.TablePrinter;
 
-import java.time.format.DateTimeFormatter;
 
 public class TransactionManager {
 
     private static final int MAX_TRANSACTIONS = 200;
     private static final String DEPOSIT_TYPE = "DEPOSIT";
     private static final String WITHDRAWAL_TYPE = "WITHDRAWAL";
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    
 
     private final Transaction[] transactions;
     private int transactionCount;

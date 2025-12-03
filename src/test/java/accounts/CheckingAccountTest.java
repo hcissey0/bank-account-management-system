@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CheckingAccountTest {
+class CheckingAccountTest {
 
     private CheckingAccount checkingAccount;
     private Customer customer;

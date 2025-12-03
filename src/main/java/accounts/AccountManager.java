@@ -54,13 +54,13 @@ public class AccountManager {
         for (int i = 0; i < this.accountCount; i++) {
             Account acc = this.accounts[i];
             data[i][0] = acc.getAccountNumber();
-            data[i][1] = (acc instanceof CheckingAccount
+            data[i][1] = (acc instanceof CheckingAccount checkingAccount
                     ? acc.getCustomer().getName()
-                            .concat(" (Overdraft Limit: $" + ((CheckingAccount) acc).getOverdraftLimit() + ")")
+                            .concat(" (Overdraft Limit: $" + checkingAccount.getOverdraftLimit() + ")")
                     : acc.getCustomer().getName()
                             .concat(" (Interest Rate: " + ((SavingsAccount) acc).getInterestRate() + "%)"));
-            data[i][2] = (acc instanceof CheckingAccount
-                    ? acc.getAccountType().concat(" (Monthly Fee: $" + ((CheckingAccount) acc).getMonthlyFee() + ")")
+            data[i][2] = (acc instanceof CheckingAccount checkingAccount
+                    ? acc.getAccountType().concat(" (Monthly Fee: $" + checkingAccount.getMonthlyFee() + ")")
                     : acc.getAccountType()
                             .concat(" (Min Balance: $" + ((SavingsAccount) acc).getMinimumBalance() + ")"));
             data[i][3] = "$" + acc.getBalance();

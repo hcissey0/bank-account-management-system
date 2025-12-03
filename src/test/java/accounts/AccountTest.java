@@ -22,6 +22,7 @@ class AccountTest {
 
         @Override
         public void displayAccountDetails() {
+            // Intentionally empty for testing purposes
         }
 
         @Override
