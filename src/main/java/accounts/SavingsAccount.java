@@ -64,7 +64,10 @@ public class SavingsAccount extends Account {
     @Override
     protected void validateWithdrawal(double amount) throws InsufficientFundsException {
         if (this.getBalance() - amount < this.minimumBalance) {
-            throw new InsufficientFundsException("Withdrawal would breach minimum balance requirement.");
+            throw new InsufficientFundsException(
+                "Transaction Failed: Insufficient funds to maintain minimum balance. Current Balance: "
+                + this.getBalance() + ", Minimum Required Balance: " + this.minimumBalance
+                );
         }
     }
 }
