@@ -33,7 +33,7 @@ class AccountTest {
         @Override
         protected void validateWithdrawal(double amount) throws BankException {
             if (amount > getBalance()) {
-                throw new BankException("Insufficient funds");
+                throw new InvalidAmountException("Insufficient funds");
             }
         }
     }
@@ -42,6 +42,13 @@ class AccountTest {
     void setUp() {
         customer = new RegularCustomer("John Doe", 30, "1234567890", "123 Main St");
         account = new TestAccount(customer);
+    }
+
+    @Test
+    void testAccountNumberGeneration() {
+        String accountNumber = account.getAccountNumber();
+        assertNotNull(accountNumber);
+        assertTrue(accountNumber.startsWith("ACC"));
     }
 
     @Test
@@ -71,6 +78,11 @@ class AccountTest {
     }
 
     @Test
+    void testProcessTransactionWithWrongType() {
+        assertThrows(BankException.class, () -> account.processTransaction(100.0, "InvalidType"));
+    }
+
+    @Test
     void testProcessTransactionInvalidType() {
         assertThrows(BankException.class, () -> account.processTransaction(100.0, "Invalid"));
     }
@@ -81,10 +93,21 @@ class AccountTest {
     }
 
     @Test
+    void testValidateWithdrawalInsufficientFunds() {
+        assertThrows(InvalidAmountException.class, () -> account.validateWithdrawal(10.0));
+    }
+
+    @Test
     void testGetters() {
         assertNotNull(account.getAccountNumber());
         assertEquals(customer, account.getCustomer());
         assertEquals("Active", account.getStatus());
         assertEquals(0.0, account.getBalance());
+    }
+
+    @Test
+    void testSetters() {
+        account.setBalance(200.0);
+        assertEquals(200.0, account.getBalance());
     }
 }

@@ -3,6 +3,7 @@ package accounts;
 import exceptions.AccountNotFoundException;
 import utils.ConsoleTablePrinter;
 import utils.TablePrinter;
+import utils.InputReader;
 
 
 public class AccountManager {
@@ -22,8 +23,10 @@ public class AccountManager {
     }
 
     public void addAccount(Account account) {
-        this.accounts[this.accountCount++] = account;
-        System.out.println("Account added: " + account.getAccountNumber());
+        if (accountCount < accounts.length)
+            this.accounts[this.accountCount++] = account;
+        else
+            System.out.println("Account limit reached.");
     }
 
     public Account findAccount(String accountNumber) throws AccountNotFoundException {
@@ -35,7 +38,7 @@ public class AccountManager {
         throw new AccountNotFoundException("Account with number " + accountNumber + " not found.");
     }
 
-    public void viewAllAccounts(utils.InputReader inputReader) {
+    public void viewAllAccounts(InputReader inputReader) {
         String[] headers = {
                 "ACCOUNT NUMBER",
                 "CUSTOMER NAME",
@@ -50,22 +53,16 @@ public class AccountManager {
             return;
         }
 
-        String[][] data = new String[this.accountCount][headers.length];
-        for (int i = 0; i < this.accountCount; i++) {
-            Account acc = this.accounts[i];
-            data[i][0] = acc.getAccountNumber();
-            data[i][1] = (acc instanceof CheckingAccount checkingAccount
-                    ? acc.getCustomer().getName()
-                            .concat(" (Overdraft Limit: $" + checkingAccount.getOverdraftLimit() + ")")
-                    : acc.getCustomer().getName()
-                            .concat(" (Interest Rate: " + ((SavingsAccount) acc).getInterestRate() + "%)"));
-            data[i][2] = (acc instanceof CheckingAccount checkingAccount
-                    ? acc.getAccountType().concat(" (Monthly Fee: $" + checkingAccount.getMonthlyFee() + ")")
-                    : acc.getAccountType()
-                            .concat(" (Min Balance: $" + ((SavingsAccount) acc).getMinimumBalance() + ")"));
-            data[i][3] = "$" + acc.getBalance();
-            data[i][4] = acc.getStatus();
-        }
+        String[][] data = java.util.stream.IntStream.range(0, this.accountCount)
+            .mapToObj(i -> this.accounts[i])
+            .map(acc -> new String[]{
+                acc.getAccountNumber(),
+                formatCustomerName(acc),
+                formatAccountType(acc),
+                "$" + acc.getBalance(),
+                acc.getStatus()
+            })
+            .toArray(String[][]::new);
 
         printer.printTable(headers, data);
 
@@ -74,7 +71,24 @@ public class AccountManager {
         System.out.println("Total Bank Balance: $" + getTotalBalance());
 
         inputReader.waitForEnter();
+    }
 
+    private String formatCustomerName(Account acc) {
+        if (acc instanceof CheckingAccount checkingAccount) {
+            return acc.getCustomer().getName() + " (Overdraft Limit: $" + checkingAccount.getOverdraftLimit() + ")";
+        } else if (acc instanceof SavingsAccount savingsAccount) {
+            return acc.getCustomer().getName() + " (Interest Rate: " + savingsAccount.getInterestRate() + "%)";
+        }
+        return acc.getCustomer().getName();
+    }
+
+    private String formatAccountType(Account acc) {
+        if (acc instanceof CheckingAccount checkingAccount) {
+            return acc.getAccountType() + " (Monthly Fee: $" + checkingAccount.getMonthlyFee() + ")";
+        } else if (acc instanceof SavingsAccount savingsAccount) {
+            return acc.getAccountType() + " (Min Balance: $" + savingsAccount.getMinimumBalance() + ")";
+        }
+        return acc.getAccountType();
     }
 
     public double getTotalBalance() {

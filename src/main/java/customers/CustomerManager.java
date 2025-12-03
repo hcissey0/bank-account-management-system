@@ -2,6 +2,7 @@ package customers;
 
 import utils.ConsoleTablePrinter;
 import utils.TablePrinter;
+import utils.InputReader;
 
 public class CustomerManager {
 
@@ -16,13 +17,12 @@ public class CustomerManager {
     }
 
     public void addCustomer(Customer customer) {
-        if (customerCount < customers.length) {
+        if (customerCount < customers.length)
             this.customers[this.customerCount++] = customer;
-            System.out.println("Customer added: " + customer.getName());
-        } else {
+        else
             System.out.println("Customer limit reached.");
-        }
     }
+    
 
     public Customer findCustomer(String customerId) {
         for (int i = 0; i < this.customerCount; i++) {
@@ -33,7 +33,7 @@ public class CustomerManager {
         return null;
     }
 
-    public void viewAllCustomers(utils.InputReader inputReader) {
+    public void viewAllCustomers(InputReader inputReader) {
         String[] headers = {
                 "CUSTOMER ID",
                 "NAME",

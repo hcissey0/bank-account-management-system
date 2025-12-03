@@ -1,18 +1,7 @@
 package customers;
 
-/**
- * The type Regular customer.
- */
 public class RegularCustomer extends Customer {
 
-    /**
-     * Instantiates a new Regular customer.
-     *
-     * @param name    the name
-     * @param age     the age
-     * @param contact the contact
-     * @param address the address
-     */
     public RegularCustomer(String name, int age, String contact, String address) {
         this.setName(name);
         this.setAge(age);

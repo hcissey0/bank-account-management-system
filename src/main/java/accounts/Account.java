@@ -8,9 +8,9 @@ import transactions.Transactable;
 public abstract class Account implements Transactable {
     private static int accountCounter = 0;
     private final String accountNumber;
-    private Customer customer;
+    private final Customer customer;
     private double balance;
-    private String status;
+    private final String status;
 
 
     Account(Customer customer) {
@@ -58,9 +58,8 @@ public abstract class Account implements Transactable {
     public abstract String getAccountType();
 
 
-    public double deposit(double amount) {
+    public void deposit(double amount) {
         this.balance += amount;
-        return this.balance;
     }
 
     public double withdraw(double amount) {

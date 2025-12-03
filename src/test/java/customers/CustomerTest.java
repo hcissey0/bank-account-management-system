@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CustomerTest {
+class CustomerTest {
 
     private TestCustomer customer;
 
@@ -19,6 +19,7 @@ public class CustomerTest {
 
         @Override
         public void displayCustomerDetails() {
+            // Intentionally empty for testing purposes
         }
 
         @Override
@@ -44,6 +45,7 @@ public class CustomerTest {
         assertEquals(30, customer.getAge());
         assertEquals("1234567890", customer.getContact());
         assertEquals("123 Main St", customer.getAddress());
+        assertEquals("Test", customer.getCustomerType());
 
         customer.setName("Jane Doe");
         assertEquals("Jane Doe", customer.getName());

@@ -60,7 +60,7 @@ class CheckingAccountTest {
         // Balance 100. Overdraft 1000. Max withdraw 1100.
         // Try 1200.
         double result = checkingAccount.withdraw(1200.0);
-        assertEquals(0, result); // Returns 0 on failure
+        assertEquals(-1, result); // Returns -1 on failure
         assertEquals(100.0, checkingAccount.getBalance()); // Balance unchanged
     }
 

@@ -37,7 +37,7 @@ public class CheckingAccount extends Account {
         if (amount - this.getBalance() < this.overdraftLimit) {
             return super.withdraw(amount);
         }
-        return 0;
+        return -1;
     }
 
     @java.lang.Override
