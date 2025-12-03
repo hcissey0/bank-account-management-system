@@ -90,6 +90,18 @@ public class TransactionManager {
         waitForUserInput(inputReader);
     }
 
+    public Transaction[] getTransactionsForAccount(String accountNumber) {
+        return filterTransactionsByAccount(accountNumber);
+    }
+
+    public double getTotalDeposits(String accountNumber) {
+        return calculateTotalByTypeForAccount(accountNumber, DEPOSIT_TYPE);
+    }
+
+    public double getTotalWithdrawals(String accountNumber) {
+        return calculateTotalByTypeForAccount(accountNumber, WITHDRAWAL_TYPE);
+    }
+
     // ==================== HELPER METHODS ====================
 
     private double calculateTotalByType(String type) {
