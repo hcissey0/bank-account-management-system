@@ -8,7 +8,7 @@ public class TransactionTest {
     @Test
     void testTransactionCreation() {
         Transaction transaction = new Transaction("ACC001", "DEPOSIT", 100.0, 200.0);
-        
+
         assertNotNull(transaction.getTransactionId());
         assertTrue(transaction.getTransactionId().startsWith("TXN"));
         assertEquals("ACC001", transaction.getAccountNumber());

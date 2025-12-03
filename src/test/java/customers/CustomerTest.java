@@ -18,7 +18,8 @@ public class CustomerTest {
         }
 
         @Override
-        public void displayCustomerDetails() {}
+        public void displayCustomerDetails() {
+        }
 
         @Override
         public String getCustomerType() {
