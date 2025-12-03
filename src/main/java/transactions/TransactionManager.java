@@ -4,7 +4,6 @@ import utils.ConsoleTablePrinter;
 import utils.TablePrinter;
 
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
 public class TransactionManager {
 

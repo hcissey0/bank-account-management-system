@@ -3,8 +3,6 @@ package customers;
 import utils.ConsoleTablePrinter;
 import utils.TablePrinter;
 
-import java.util.Scanner;
-
 public class CustomerManager {
 
     private final Customer[] customers;
