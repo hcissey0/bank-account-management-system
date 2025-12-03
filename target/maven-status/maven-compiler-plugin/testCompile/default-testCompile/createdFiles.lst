@@ -1,0 +1,12 @@
+customers\RegularCustomerTest.class
+transactions\TransactionManagerTest.class
+transactions\TransactionTest.class
+accounts\AccountManagerTest.class
+accounts\CheckingAccountTest.class
+accounts\SavingsAccountTest.class
+accounts\AccountTest.class
+customers\CustomerTest$TestCustomer.class
+accounts\AccountTest$TestAccount.class
+customers\CustomerManagerTest.class
+customers\CustomerTest.class
+customers\PremiumCustomerTest.class

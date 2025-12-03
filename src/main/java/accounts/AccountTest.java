@@ -49,6 +49,7 @@ class AccountTest {
         String accountNumber = account.getAccountNumber();
         assertNotNull(accountNumber);
         assertTrue(accountNumber.startsWith("ACC"));
+        System.out.println("Account Number Test Passed");
     }
 
     @Test
