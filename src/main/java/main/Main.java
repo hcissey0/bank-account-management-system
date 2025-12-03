@@ -41,10 +41,11 @@ class Main {
                 System.out.println("4. Process Transaction");
                 System.out.println("5. View Transaction History for an account");
                 System.out.println("6. View all Transaction Histories");
-                System.out.println("7. Run Tests");
-                System.out.println("8. Exit\n");
+                System.out.println("7. Generate Bank Statement");
+                System.out.println("8. Run Tests");
+                System.out.println("9. Exit\n");
 
-                choice = inputReader.readInt("Enter your choice: ", 1, 8);
+                choice = inputReader.readInt("Enter your choice: ", 1, 9);
 
                 switch (choice) {
                     case 1:
@@ -66,15 +67,18 @@ class Main {
                         viewAllTransactionHistory(transactionManager, inputReader);
                         break;
                     case 7:
-                        runTests(inputReader);
+                        generateBankStatement(accountManager, transactionManager, inputReader);
                         break;
                     case 8:
+                        runTests(inputReader);
+                        break;
+                    case 9:
                         break;
                     default:
                         System.out.println("Invalid Input. Try Again!");
                 }
 
-            } while (choice != 8);
+            } while (choice != 9);
 
         }
 
@@ -253,6 +257,68 @@ class Main {
 
     public static void viewCustomers(CustomerManager customerManager, InputReader inputReader) {
         customerManager.viewAllCustomers(inputReader);
+    }
+
+    public static void generateBankStatement(AccountManager accountManager, TransactionManager transactionManager, InputReader inputReader) {
+        System.out.println();
+        System.out.println("+----------------+");
+        System.out.println("| BANK STATEMENT |");
+        System.out.println("+----------------+");
+
+        String accountNumber = inputReader.readString("\nEnter Account number: ");
+
+        Account account;
+        try {
+            account = accountManager.findAccount(accountNumber);
+        } catch (AccountNotFoundException e) {
+            System.out.println(e.getMessage());
+            inputReader.waitForEnter();
+            return;
+        }
+
+        // 1. Account Details
+        account.displayAccountDetails();
+
+        // 2. Transactions
+        System.out.println("\n--- Transactions ---");
+        Transaction[] transactions = transactionManager.getTransactionsForAccount(accountNumber);
+        
+        int count = 0;
+        for(Transaction t : transactions) {
+            if(t != null) count++;
+        }
+
+        if (count == 0) {
+            System.out.println("No transactions found.");
+        } else {
+            String[] headers = { "TRANSACTION ID", "TYPE", "AMOUNT", "DATE" };
+            String[][] data = new String[count][4];
+            int rowIndex = 0;
+            for(Transaction t : transactions) {
+                if(t != null) {
+                    data[rowIndex][0] = t.getTransactionId();
+                    data[rowIndex][1] = t.getType();
+                    data[rowIndex][2] = "$" + t.getAmount();
+                    data[rowIndex][3] = t.getTimestamp();
+                    rowIndex++;
+                }
+            }
+            
+            new utils.ConsoleTablePrinter().printTable(headers, data);
+        }
+
+        // 3. Net Change
+        double totalDeposits = transactionManager.getTotalDeposits(accountNumber);
+        double totalWithdrawals = transactionManager.getTotalWithdrawals(accountNumber);
+        double netChange = totalDeposits - totalWithdrawals;
+        
+        System.out.println("\n--- Summary ---");
+        System.out.println("Total Deposits:    $" + String.format("%.2f", totalDeposits));
+        System.out.println("Total Withdrawals: $" + String.format("%.2f", totalWithdrawals));
+        System.out.println("Net Change:        $" + String.format("%.2f", netChange));
+        System.out.println("Closing Balance:   $" + String.format("%.2f", account.getBalance()));
+        
+        inputReader.waitForEnter();
     }
 
     private static void runTests(InputReader inputReader) {
