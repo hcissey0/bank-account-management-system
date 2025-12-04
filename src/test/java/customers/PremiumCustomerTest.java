@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Unit tests for PremiumCustomer including waived fees and type verification. */
-public class PremiumCustomerTest {
+class PremiumCustomerTest {
 
   private PremiumCustomer premiumCustomer;
 

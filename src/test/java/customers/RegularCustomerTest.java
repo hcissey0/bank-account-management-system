@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Unit tests for RegularCustomer including constructor and type verification. */
-public class RegularCustomerTest {
+class RegularCustomerTest {
 
   private RegularCustomer regularCustomer;
 

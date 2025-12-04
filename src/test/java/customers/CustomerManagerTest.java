@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Unit tests for CustomerManager including add, find, and capacity limit operations. */
-public class CustomerManagerTest {
+class CustomerManagerTest {
 
   private CustomerManager customerManager;
 

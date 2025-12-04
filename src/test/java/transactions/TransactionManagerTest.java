@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /** Unit tests for TransactionManager including add, totals, and capacity limit operations. */
-public class TransactionManagerTest {
+class TransactionManagerTest {
 
   private TransactionManager transactionManager;
 

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 /** Unit tests for Transaction including ID generation and timestamp creation. */
-public class TransactionTest {
+class TransactionTest {
 
   @Test
   void testTransactionCreation() {
