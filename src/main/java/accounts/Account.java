@@ -6,25 +6,8 @@ import exceptions.InvalidAmountException;
 import transactions.Transactable;
 
 /**
- * Represents an abstract bank account associated with a customer. This class serves as the base for
- * specific account types (e.g., Savings, Checking) and implements the {@link Transactable}
- * interface to handle financial operations.
- *
- * <p>It manages core account attributes such as:
- *
- * <ul>
- *   <li>Account Number (auto-generated)
- *   <li>Customer details
- *   <li>Account Status (defaults to "Active")
- *   <li>Current Balance
- * </ul>
- *
- * <p>The class provides concrete implementations for basic deposit and withdrawal logic, while
- * delegating specific validation rules and display logic to subclasses.
- *
- * @see Transactable
- * @see Customer
- * @see BankException
+ * Abstract base class for bank accounts, implementing {@link Transactable} for transactions.
+ * Manages account number, customer, status, and balance.
  */
 public abstract class Account implements Transactable {
   private static final String DEFAULT_STATUS = "Active";
@@ -85,16 +68,11 @@ public abstract class Account implements Transactable {
   }
 
   /**
-   * Processes a financial transaction for the account based on the specified amount and transaction
-   * type.
+   * Processes a deposit or withdrawal transaction after validation.
    *
-   * <p>This method first validates the transaction details. If valid, it routes the request to
-   * either the deposit or withdrawal logic based on the provided type string (case-insensitive).
-   *
-   * @param amount The monetary value of the transaction. Must be a positive value.
-   * @param type The type of transaction to perform (e.g., "Deposit" or "Withdrawal").
-   * @throws BankException If the amount is invalid, the transaction type is unrecognized, or if
-   *     specific withdrawal conditions (like insufficient funds) are met.
+   * @param amount the transaction amount (must be positive)
+   * @param type the transaction type ("Deposit" or "Withdrawal")
+   * @throws BankException if validation fails or type is invalid
    */
   @Override
   public void processTransaction(double amount, String type) throws BankException {
@@ -106,16 +84,11 @@ public abstract class Account implements Transactable {
   }
 
   /**
-   * Validates the transaction amount based on the transaction type (Deposit or Withdrawal).
+   * Validates the transaction amount based on type.
    *
-   * <p>This method delegates the validation logic to specific helper methods depending on whether
-   * the operation is a "Deposit" or a "Withdrawal". The comparison for the transaction type is
-   * case-insensitive.
-   *
-   * @param amount The monetary amount involved in the transaction.
-   * @param type The type of transaction (e.g., "Deposit", "Withdrawal").
-   * @throws BankException If the amount is invalid for the specified transaction type (e.g.,
-   *     negative amount, insufficient funds).
+   * @param amount the transaction amount
+   * @param type the transaction type ("Deposit" or "Withdrawal")
+   * @throws BankException if the amount is invalid for the transaction type
    */
   @Override
   public void validateAmount(double amount, String type) throws BankException {

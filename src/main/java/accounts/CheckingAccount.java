@@ -35,7 +35,12 @@ public class CheckingAccount extends Account {
     }
   }
 
-  /** Displays the details of the checking account, including overdraft limit and monthly fee. */
+  /**
+   * Withdraws the specified amount, allowing overdraft up to the limit.
+   *
+   * @param amount the amount to withdraw
+   * @return the new balance if successful, or -1 if overdraft limit exceeded
+   */
   @java.lang.Override
   public double withdraw(double amount) {
     if (amount - this.getBalance() < this.overdraftLimit) {
