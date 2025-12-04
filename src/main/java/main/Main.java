@@ -118,6 +118,7 @@ public class Main {
       account = accountManager.findAccount(accountNumber);
     } catch (AccountNotFoundException e) {
       System.out.println(e.getMessage());
+      inputReader.waitForEnter();
       return;
     }
 
