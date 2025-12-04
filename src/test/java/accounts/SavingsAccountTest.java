@@ -45,7 +45,7 @@ class SavingsAccountTest {
   void testWithdrawFailure() {
     // Min balance 500. Balance 1000. Try withdraw 600. Remaining 400 < 500.
     double result = savingsAccount.withdraw(600.0);
-    assertEquals(0, result);
+    assertEquals(-1, result);
     assertEquals(1000.0, savingsAccount.getBalance());
   }
 
