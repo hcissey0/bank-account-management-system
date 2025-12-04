@@ -208,7 +208,7 @@ public class Main {
     }
 
     private static void runTests(InputReader inputReader) {
-        System.out.println("Running tests...");
+        System.out.println("Running tests with JUnit...");
         try {
             new CustomTestRunner().runTests();
         } catch (Exception e) {

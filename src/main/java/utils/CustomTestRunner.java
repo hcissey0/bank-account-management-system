@@ -39,7 +39,7 @@ public class CustomTestRunner {
               //     testName = testName.substring(0, testName.length() - 2);
               // }
 
-              System.out.print(testName);
+              System.out.print("Test: " + testName);
 
               // Padding
               int padding = 50 - testName.length();
