@@ -33,9 +33,9 @@ public class CustomTestRunner {
                 if (testIdentifier.isTest()) {
                     String testName = testIdentifier.getDisplayName();
                     // Remove parentheses for cleaner output if present (e.g. testName())
-                    if (testName.endsWith("()")) {
-                        testName = testName.substring(0, testName.length() - 2);
-                    }
+                    // if (testName.endsWith("()")) {
+                    //     testName = testName.substring(0, testName.length() - 2);
+                    // }
 
                     System.out.print(testName);
 
