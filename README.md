@@ -1,38 +1,38 @@
-# Ìø¶ Bank Account Management System
+# Bank Account Management System
 
 A robust, Java-based Command Line Interface (CLI) application designed to simulate core banking operations. This system allows for efficient management of customers, accounts, and transactions with a focus on object-oriented design principles.
 
 ## ‚ú® Features
 
-- **Ì±• Customer Management**: 
+- **Customer Management**: 
   - Support for **Regular** and **Premium** customers.
   - Premium customers enjoy enhanced benefits and distinct validation rules.
   
-- **Ì≤≥ Account Operations**:
+- **Account Operations**:
   - **Savings Accounts**: Earn interest (3.5%) with minimum balance requirements.
   - **Checking Accounts**: Support overdraft protection with monthly fees.
   
-- **Ì≤∏ Transaction Processing**:
+- **Transaction Processing**:
   - Secure **Deposits** and **Withdrawals**.
   - Real-time balance updates and validation.
   - Comprehensive transaction history tracking.
 
-- **Ì≥Ñ Reporting**:
+- **Reporting**:
   - **Bank Statements**: Generate detailed statements with net change summaries.
   - **Transaction History**: View history per account or globally.
 
-- **‚úÖ Integrated Testing**:
+- **Integrated Testing**:
   - Custom built-in test runner accessible directly from the main menu.
   - Runs JUnit 5 tests to ensure system stability.
 
-## Ìª†Ô∏è Tech Stack
+## Ô∏èTech Stack
 
 - **Language**: Java 17
 - **Build Tool**: Maven
 - **Testing**: JUnit 5, JUnit Platform Launcher
 - **Logging**: Java Util Logging
 
-## Ì∫Ä Getting Started
+## Getting Started
 
 ### Prerequisites
 - Java Development Kit (JDK) 17 or higher
@@ -65,7 +65,7 @@ Or run the tests:
 mvn test
 ```
 
-## Ì≥Ç Project Structure
+##  Project Structure
 
 ```
 src/main/java/
@@ -76,7 +76,7 @@ src/main/java/
 ‚îî‚îÄ‚îÄ utils/          # Helpers (InputReader, TestRunner)
 ```
 
-## Ì¥ù Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
